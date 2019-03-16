@@ -3,36 +3,36 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:rich="http://richfaces.org/rich">
+      xmlns:p="http://primefaces.org/ui">
 <body>
 <ui:composition template="/template/blue_travel.xhtml">
 	<ui:define name="pageTitle">#{local.tripList}</ui:define>
 	<ui:define name="primaryContent">
 		<h:form>
-  <rich:dataTable var="trip" value="#{holidayManager.allHolidays}">
-    <rich:column>
+  <p:dataTable var="trip" value="#{holidayManager.allHolidays}">
+    <p:column>
       <f:facet name="header">#{local.name}</f:facet>
       #{trip.name}
-    </rich:column>
-    <rich:column>
+    </p:column>
+    <p:column>
       <f:facet name="header">#{local.starts}</f:facet>
       #{trip.starts}
-    </rich:column>
-    <rich:column>
+    </p:column>
+    <p:column>
       <f:facet name="header">#{local.ends}</f:facet>
       #{trip.ends}
-    </rich:column>
-    <rich:column>
+    </p:column>
+    <p:column>
       <f:facet name="header">#{local.price}</f:facet>
       #{trip.price}
-    </rich:column>
-    <rich:column>
+    </p:column>
+    <p:column>
       <h:commandLink value="#{local.tripDetail}" action="show_detail">
         <f:setPropertyActionListener target="#{holidayManager.currentHolidayId}"
                                      value="#{trip.id}"/>
       </h:commandLink>
-    </rich:column>
-  </rich:dataTable>
+    </p:column>
+  </p:dataTable>
 </h:form>
 	</ui:define>
 </ui:composition>
